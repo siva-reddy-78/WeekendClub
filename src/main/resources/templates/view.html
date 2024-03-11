@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit User</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        #video-background {
+            position: fixed;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 120%;
+            z-index: -1;
+        }
+        .container {
+            margin-bottom : 500px;
+            margin-top : 200px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 18px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            width: 300px;
+            animation: slideIn 0.5s ease forwards;
+        }
+
+        input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+
+        button {
+            width: 100%;
+            padding: 10px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        @keyframes slideIn {
+            from { transform: translateY(-100px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+         .footer-content {
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-start;
+    flex-wrap: wrap;
+}
+
+.footer-section {
+    flex: 1;
+    padding: 0 20px;
+}
+
+.footer-section h3 {
+    color: #fff;
+    font-size: 24px;
+    margin-bottom: 15px;
+}
+
+.footer-section ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.footer-section ul li {
+    margin-bottom: 10px;
+}
+
+.footer-section ul li a {
+    color: #ccc;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.footer-section ul li a:hover {
+    color: #fff;
+}
+
+.contact-info {
+    text-align: left;
+    color: #ccc;
+}
+
+/* Styling for footer background and padding */
+footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: #333;
+    color: #fff;
+    padding: 20px 0;
+    text-align: center;
+}
+    </style>
+</head>
+<body>
+   <video id="video-background" autoplay muted loop>
+        <source src="/Images/manage.mp4" type="video/mp4">
+    </video>
+    <div class="container">
+        <h2 style="text-align: center;">Enter Booking ID</h2>
+        <form id="bookingForm">
+            <input type="text" id="bookingId" placeholder="Enter Booking ID">
+            <button type="button" onclick="submitBooking()">Submit</button>
+        </form>
+    </div>
+
+    <script>
+        function submitBooking() {
+            var bookingId = document.getElementById("bookingId").value;
+            var baseUrl = "/submitBooking/details/";
+            var url = baseUrl + bookingId;
+            window.location.href = url;
+        }
+    </script>
+    
+    <footer>
+    <div class="footer-content">
+        <div class="footer-section">
+            <h3>Quick Links</h3>
+            <ul>
+                <li><a href="#">ARTICLES</a></li>
+                <li><a href="#">WHAT WE OFFER</a></li>
+                <li><a href="#">WE WORK WITH</a></li>
+                <li><a href="#">TESTIMONIALS</a></li>
+                <li><a href="#">CONTACT US</a></li>
+            </ul>
+        </div>
+        <div class="footer-section">
+            <h3>Business Info</h3>
+            <div class="contact-info">
+                <p>Unit 4, Metro Centre, Dwight Road, Tolpits Lane,<br>Watford, Hertfordshire, WD18 9SS, UK.</p>
+                <p>48 Lancaster Gate, London W2 3NA, United kingdom.</p>
+                <p>Phone: 02035407528</p>
+                <p>Email: admin@grmandpartners.com</p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+</body>
+</html>

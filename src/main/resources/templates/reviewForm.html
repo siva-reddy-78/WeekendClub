@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>People Reviews</title>
+    <link rel="stylesheet" type="text/css" href="/CSS/footer.css">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: rgba(255, 255, 255, 0.8);
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        h2 {
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+            color: #333;
+            text-align: left;
+        }
+
+        input[type="text"],
+        select,
+        button {
+            width: calc(100% - 22px);
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+            font-size: 16px;
+            transition: background-color 0.3s, color 0.3s;
+            cursor: pointer;
+        }
+
+        input[type="text"]:focus,
+        select:focus,
+        button:focus {
+            outline: none;
+        }
+
+        button[type="submit"],
+        button[type="button"] {
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s;
+        }
+
+        button[type="submit"]:hover,
+        button[type="button"]:hover {
+            background-color: #0056b3;
+        }
+
+        footer {
+            background-color: #111;
+            color: #fff;
+            padding: 50px 0;
+            text-align: center;
+            width: 100%;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            z-index: 1;
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-around;
+            align-items: flex-start;
+            flex-wrap: wrap;
+        }
+
+        .footer-section {
+            flex: 1;
+            padding: 0 10px;
+        }
+
+        .footer-section h3 {
+            color: #fff;
+            font-size: 20px;
+            margin-bottom: 15px;
+        }
+
+        .footer-section ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .footer-section ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-section ul li a {
+            color: #ccc;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-section ul li a:hover {
+            color: #fff;
+        }
+
+        .contact-info {
+            text-align: left;
+            color: #ccc;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>CUSTOMER REVIEW</h2>
+        <form th:action="@{/submitReview}" method="post" th:object="${review}">
+            <input type="hidden" th:field="*{id}">
+            <input type="hidden" th:name="bookingid" th:value="${bookingid}" />
+            <label for="rating">Rating (*) :</label>
+            <select th:field="*{rating}" required>
+                <option value="">Select Rating</option>
+                <option value="1">1. Very Bad</option>
+                <option value="2">2. Bad</option>
+                <option value="3">3. Good</option>
+                <option value="4">4. Very Good</option>
+                <option value="5">5. Excellent</option>
+            </select>
+            <br>
+            <label for="reviewText">Description:</label>
+            <input type="text" th:field="*{reviewText}" required><br>
+            <button type="submit">Submit</button>
+            <button type="button" onclick="cancel()">Cancel</button>
+        </form>
+    </div>
+
+    <script type="text/javascript">
+        function cancel() {
+            window.location="@{{/home}}}";
+        }
+    </script>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="#">ARTICLES</a></li>
+                    <li><a href="#">WHAT WE OFFER</a></li>
+                    <li><a href="#">WE WORK WITH</a></li>
+                    <li><a href="#">TESTIMONIALS</a></li>
+                    <li><a href="#">CONTACT US</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Business Info</h3>
+                <div class="contact-info">
+                    <p>Unit 4, Metro Centre, Dwight Road, Tolpits Lane,<br>Watford, Hertfordshire, WD18 9SS, UK.</p>
+                    <p>48 Lancaster Gate, London W2 3NA, United kingdom.</p>
+                    <p>02035407528</p>
+                    <p>admin@grmandpartners.com</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

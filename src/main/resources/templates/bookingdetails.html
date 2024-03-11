@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Booking details</title>
+     <link rel="stylesheet" type="text/css" href="/CSS/footer.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #000000;
+            background-image:url("/Images/bookin2.jpg"); ;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            overflow: hidden; /* Prevent horizontal scroll */
+        }
+
+        .container {
+            max-width: 400px;
+            background-color: rgba(2, 2, 2, 0.6);
+            
+            padding: 50px;
+            border-radius: 8px;
+            box-shadow: 0 0 30px red;
+            position: relative;
+            color: white;
+            overflow: hidden; /* Prevent overflow of typing animation */
+        }
+        .alert {
+        padding: 15px;
+        border: 1px solid transparent;
+        border-radius: 4px;
+        margin-bottom: 20px;
+    }
+    .alert-success {
+        color: #3c763d;
+        background-color: #dff0d8;
+        border-color: #d6e9c6;
+    }
+    .text-center {
+        text-align: center;
+    }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .booking-details {
+            margin-top: 20px;
+        }
+
+        .booking-details p {
+            margin-bottom: 10px;
+        }
+
+        .typing-animation {
+            display: inline-block;
+            overflow: hidden;
+            animation: typing 3s steps(20, end) forwards; /* Changed infinite to forwards */
+            white-space: nowrap;
+            border-right: 2px solid white; /* Cursor effect */
+        }
+
+        @keyframes typing {
+            from {
+                width: 0;
+            }
+            to {
+                width: 100%;
+            }
+        }
+
+        input[type="text"],
+        input[type="date"],
+        select,
+        button {
+            width: calc(100% - 22px);
+            padding: 10px;
+            margin-bottom: 15px;
+            border: none;
+            border-radius: 4px;
+            box-sizing: border-box;
+            font-size: 16px;
+            transition: background-color 0.3s, color 0.3s;
+            cursor: pointer;
+        }
+        button:focus {
+            outline: none;
+        }
+        button {
+            background-color: blue;
+            color: white;
+        }
+        button:hover {
+            background-color: green;
+        }
+        button:active {
+            background-color: blue;
+        }
+        button {
+            background-color: blue;
+            color: #ffffff;
+        }
+        button :hover {
+            background-color: #000000;
+        }
+        button[type="button"]:active {
+            background-color: #020202;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+    <div th:if="${message}" class="alert alert-success text-center">
+        [[${message}]]
+    </div>
+        <h1><span>Welcome:</span> <span class="typing-animation" th:text="${bookedUser.firstname + ' ' + bookedUser.lastname}"></span></h1>
+        <div class="booking-details">
+            <p><span>Birth date:</span> <span th:text="${bookedUser.dob}"></span></p>
+            <p><span>Mobile number:</span> <span th:text="${bookedUser.mobilenumber}"></span></p>
+            <p><span>Lesson:</span> <span th:text="${bookedUser.lesson}"></span></p>
+            <p><span>Booking Date:</span> <span th:text="${bookedUser.bookingDate}"></span></p>
+            <p><span>Timings :</span> <span th:text="${bookedUser.bookingTime}"></span></p>
+            <p><span>Reference number:</span> <span th:text="${bookedUser.bookingid}"></span></p>
+             <div th:if="${message}" class="alert alert-success text-center">
+                   <p><span>Reference number is for managing class<br>
+                       <span th:text="${bookedUser.bookingid}"></span></span></p>
+             </div>
+            <a href="/home"><button>Home</button></a>
+        </div>
+        <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="#">ARTICLES</a></li>
+                    <li><a href="#">WHAT WE OFFER</a></li>
+                    <li><a href="#">WE WORK WITH</a></li>
+                    <li><a href="#">TESTIMONIALS</a></li>
+                    <li><a href="#">CONTACT US</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Business Info</h3>
+                <div class="contact-info">
+                    <p>Unit 4, Metro Centre, Dwight Road, Tolpits Lane,<br>Watford, Hertfordshire, WD18 9SS, UK.</p>
+                    <p>48 Lancaster Gate, London W2 3NA, United kingdom.</p>
+                    <p>02035407528</p>
+                    <p>admin@grmandpartners.com</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+    </div>
+</body>
+</html>

@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Home Page</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        /* Header */
+        header {
+            background-color: #111;
+            padding: 10px 0;
+            text-align: center;
+            color: #fff;
+        }
+
+        /* Navigation */
+        nav {
+            background-color: #000;
+            padding: 10px 0;
+            text-align: center;
+            color: #fff;
+        }
+
+        nav a {
+            margin: 0 10px;
+            color: #fff;
+            text-decoration: none;
+        }
+
+        /* Main Content */
+        #video-background {
+            width: 100%;
+            height: auto;
+            
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            text-align: center;
+            color: #fff;
+        }
+
+        .container h1 {
+            font-size: 36px;
+            margin-bottom: 20px;
+        }
+
+        .button {
+            display: inline-block;
+            background-color: red;
+            color: white;
+            padding: 15px 20px;
+            margin: 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            text-decoration: none;
+            font-size: 16px;
+            transition: background-color 0.3s;
+        }
+
+        .button:hover {
+            background-color: #45a049;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #000;
+            color: #fff;
+            padding: 20px 0;
+            text-align: center;
+                margin-top: -4px;
+            
+        }
+
+
+        .footer-content {
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            flex-wrap: wrap;
+        }
+
+        .footer-section {
+            flex: 1;
+            padding: 0 10px;
+            text-align: left;
+        }
+
+        .footer-section h3 {
+            font-size: 20px;
+            margin-bottom: 15px;
+            color: #fff;
+        }
+
+        .footer-section ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .footer-section ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-section ul li a {
+            color: #ccc;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-section ul li a:hover {
+            color: #fff;
+        }
+
+        .contact-info {
+            color: #ccc;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Welcome to Premium Poses Weekend Club</h1>
+    </header>
+
+    <nav>
+        <a href="/reg">Book Class</a>
+        <a href="manage">Manage Class</a>
+        <a href="view">View Class</a>
+        <a href="review">Review</a>
+    </nav>
+
+    <video id="video-background" autoplay muted loop>
+        <source src="/Images/homepage.mp4" type="video/mp4">
+    </video>
+
+    <footer class="footer_main">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="#">ARTICLES</a></li>
+                    <li><a href="#">WHAT WE OFFER</a></li>
+                    <li><a href="#">WE WORK WITH</a></li>
+                    <li><a href="#">TESTIMONIALS</a></li>
+                    <li><a href="#">CONTACT US</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Contact</h3>
+                <div class="contact-info">
+                    <p>Unit 4, Metro Centre, Dwight Road, Tolpits Lane,<br>Watford, Hertfordshire, WD18 9SS, UK.</p>
+                    <p>48 Lancaster Gate, London W2 3NA, United kingdom.</p>
+                    <p>Phone: 02035407528</p>
+                    <p>Email: admin@grmandpartners.com</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
